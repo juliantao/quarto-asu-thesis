@@ -1,0 +1,26 @@
+title: ASU Dissertation 
+author: Julian Tao
+version: 0.1.0
+contributes:
+  formats:
+    common:
+      # define below YAML configuration common to all formats
+      filters:
+        # You can include here Lua filters from your extension format 
+        - color-text.lua
+      shortcodes:
+        # You can include here Lua filters defining shortcodes from your extension
+        - shortcodes.lua
+    pdf:
+      template: asudis.tex
+      colorlinks: true
+      urlcolor: red
+      format-resources:
+        - asudis.bst
+    html:
+      # define default configuration for the html version of your format
+      number-sections: true
+      toc: true
+      theme: 
+        - cosmo
+        - custom.scss

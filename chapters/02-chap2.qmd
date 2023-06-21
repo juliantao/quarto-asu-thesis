@@ -1,0 +1,172 @@
+# This is a chapter-level heading {#sec-style}
+
+## This is the first section-level heading
+
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi.
+Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis
+vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan
+bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi
+ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante.
+Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla
+ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.
+
+> Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat
+> at, tincidunt tristique, libero. Vivamus viverra fermentum felis.
+> Donec nonummy pellentesque ante. Phasellus adipiscing semper elit.
+> Proin fermentum massa ac quam. Sed diam turpis, molestie vitae,
+> placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula,
+> eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula
+> feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae
+> enim. Pellentesque tincidunt purus vel magna. Integer non enim.
+> Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam
+> cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim.
+> Vestibulum pellentesque felis eu massa.
+
+Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae
+lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. In hac habitasse platea dictumst. Integer tempus
+convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean
+placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio
+placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor.
+Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta
+vehicula.
+
+### This is the first sub-section-level heading
+
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi.
+Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis
+vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan
+bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi
+ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante.
+Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis
+parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla
+ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.
+
+> Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat
+> at, tincidunt tristique, libero. Vivamus viverra fermentum felis.
+> Donec nonummy pellentesque ante. Phasellus adipiscing semper elit.
+> Proin fermentum massa ac quam. Sed diam turpis, molestie vitae,
+> placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula,
+> eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula
+> feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae
+> enim. Pellentesque tincidunt purus vel magna. Integer non enim.
+> Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam
+> cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim.
+> Vestibulum pellentesque felis eu massa.
+
+Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae
+lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer
+adipiscing elit. In hac habitasse platea dictumst. Integer tempus
+convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean
+placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio
+placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor.
+Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta
+vehicula.
+
+#### This is the first sub-sub-section-level heading
+
+##### This is the first paragraph-level heading
+
+###### This is the first sub-paragraph-level heading
+
+## Citation examples
+
+The contents of this section differ depending on the bibliography
+settings, specifically whether the 'usebiblatex' toggle is set to 'true'
+or 'false'. This sentence shows citation with natbib
+[@pathak_rural_2007]. This is another sentence showing citation with
+natbib [@searchinger_world_2013].
+
+## Footnote examples
+
+This is a sentence followed by a footnote.[^1] This is another sentence
+followed by a footnote.[^2]
+
+[^1]: Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus
+    vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet
+    tortor gravida placerat. Integer sapien est, iaculis in, pretium
+    quis, viverra ac, nunc. Praesent eget sem vel leo ultrices biben-
+    dum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at,
+    mollis ac, nulla.
+
+[^2]: Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus
+    vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet
+    tortor gravida placerat. Integer sapien est, iaculis in, pretium
+    quis, viverra ac, nunc. Praesent eget sem vel leo ultrices biben-
+    dum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at,
+    mollis ac, nulla.
+
+## Block quote example
+
+The following is a block quote:
+
+## Endnote examples
+
+Endnotes appear in a separate section after chapters and before the
+reference list. This is a sentence followed by a endnote. This is
+another sentence followed by a endnote. And here is a really long
+endnote to show formatting across several pages.
+
+## Table example
+
+See @tbl-table1 for an example of a table.
+Citing another reference in caption is also straightforward. 
+See @tbl-table2 for a demonstration.
+
+| Column1 | Column2 | Column3 |
+|---------|---------|---------|
+| Row1    | 1.0     | 2.0     |
+| Row2    | 2.0     | 4.0     |
+| Row1    | 3.0     | 6.0     |
+
+Table: Here is a table caption that is especially long to show what happens when it extends to more than one line in the table of contents {#tbl-table1}
+
+| Column1 | Column2 | Column3 |
+|---------|---------|---------|
+| Row1    | 1.0     | 2.0     |
+| Row2    | 2.0     | 4.0     |
+| Row1    | 3.0     | 6.0     |
+
+Table: This table caption refers to another caption: see @fig-figexample. {#tbl-table2}
+
+| Column1 | Column2 | Column3 |
+|---------|---------|---------|
+| Row1    | 1.0     | 2.0     |
+| Row2    | 2.0     | 4.0     |
+| Row1    | 3.0     | 6.0     |
+
+Table: This table caption refers to another caption: see @fig-figexample. 
+
+
+## Figure example
+
+See @fig-figexample for an example of a figure.
+
+![Antidorcas marsupialis, male](../img/antidorcas.png){#fig-figexample}
+
+## Math examples
+
+This section contains some math-heavy text adapted from @dwilkins1995.
+In non-relativistic wave mechanics, the wave function
+$\psi(\mathbf{r},t)$ of a particle satisfies the Schrödinger Wave
+Equation $$i\hbar\frac{\partial \psi}{\partial t}
+    = \frac{-\hbar^2}{2m} \left(
+    \frac{\partial^2}{\partial x^2}
+    + \frac{\partial^2}{\partial y^2}
+    + \frac{\partial^2}{\partial z^2}
+    \right) \psi + V \psi.$$ It is customary to normalize the wave
+equation by demanding that $$\int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+    \left| \psi(\mathbf{r},0) \right|^2\,dx\,dy\,dz = 1.$$ A simple
+calculation using the Schrödinger wave equation shows that
+$$\frac{d}{dt} \int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+    \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz = 0,$$ and hence
+$$\int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+    \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz = 1$$ for all
+times $t$. If we normalize the wave function in this way then, for any
+(measurable) subset $V$ of $\textbf{R}^3$ and time $t$,
+$$\int \!\!\! \int \!\!\! \int_V
+    \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz$$ represents the
+probability that the particle is to be found within the region $V$ at
+time $t$.
+

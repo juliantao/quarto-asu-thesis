@@ -1,9 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ASU Dissertation Template
+% ASU Dissertation Quarto Template
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Copyright 2021 Robert W. Kutter (robert@kutterconsulting.com)
-%
-%   See also: http://kutterconsulting.com
+% Revised by Julian Tao based on Robert W. Kutter's version
 %
 % For guidance on using this file, see the README.
 %
@@ -119,53 +117,6 @@ $endfor$
 \IfFileExists{upquote.sty}%             % Use upquote if available, for
   {\usepackage{upquote}}{}              %   straight quotes in verbatim environments
 
-% % Load fonts depending on the
-% %   typesetting engine
-% \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0   % If pdftex
-%   \usepackage[utf8]{inputenc}           %   'utf8' should match the encoding of this file
-%                                         %
-%                                         %~Set up your font in pdftex here
-%                                         %
-% \else 									                % If xetex or luatex
-%   \ifxetex                              % If xetex
-%     \usepackage{mathspec}               % Matches non-math open-type font to math
-%                                         %   open-type font (use 'mathspec' if you want to
-%                                         %   write math in unicode)
-%     \usepackage{xunicode}               % Convert LaTeX character macros to unicode
-%   \else                                 % If luatex\usepackage{fontspec}
-%     \usepackage{fontspec}               % Use fontspec for (open type) font selection
-%   \fi
-%   \defaultfontfeatures{Mapping=tex-text,% Font spec setting
-%     Scale=MatchLowercase}
-%   \newcommand*{\euro}{€}
-
-  % Using fonts in XeLaTeX can be complicated; the following settings
-  % work when this file is compiled inside the Docker container produced
-  % by the `build.sh` script.
-  %
-  % Sometimes something simple like the following will work:
-  %
-  %   \setmainfont{Garamond}
-  %
-  % But often the easiest solution is to move font files (*.otf or *.ttf) into
-  % a sub-directory and provide the direct path to them here.
-  %
-  % See `fontspec` documentation for more on using local font files.
-  %
-  % \setmainfont{EBGaramond12}[           %<Set the main font; make sure the font is correct
-  %                                       %   for the font size (See ASU Style Guide)
-  %   Path          = /usr/share/fonts/opentype/ebgaramond/,
-  %   Extension     = .otf ,
-  %   UprightFont   = *-Regular ,
-  %   ItalicFont    = *-Italic ,
-  %   % Notice that bold is missing here because the Docker image does not have
-  %   % a bold typeface for Garamond; it would probably be possible to find
-  %   % one on your local system or online.
-  % ]
-
-%  \setmathfont(Digits,Latin,Greek)%     %~Uncomment two lines to set a font for math%
-%    {MATHFONT}
-% \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Line spacing
@@ -823,6 +774,8 @@ $endfor$
                                         %   previous LaTeX template.
 }
 
+%% To make quarto/rmarkdown work
+
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newenvironment{CSLReferences}%
@@ -833,11 +786,14 @@ $endfor$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tables and figures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\indentcaption{3.5em}
+\captionnamefont{\small\sffamily}
+\captiontitlefont{\small\sffamily}
 \captiondelim{. }                       %~Use period (.) after caption number instead of
                                         %   colon (:). Change according to style guide.
 \captionstyle[\raggedright]%            % Set justifcation for [one line captions]
   {\raggedright}                        %   and {multiple line captions}
-\setlength{\belowcaptionskip}{0pt}      % Bring caption down closer to figure/table
+% \setlength{\belowcaptionskip}{2pt}      % Bring caption down closer to figure/table
 \makeatletter                           % Consecutive numbering throughout
   \counterwithout{figure}{chapter}      %   (including back matter)
   \counterwithout{table}{chapter}
@@ -859,13 +815,6 @@ $endfor$
 %   load additional packages and modify the code below to get tables (and figures) to
 %   look the way you want them to.
 \setfloatadjustment{table}{\raggedright}% Left justify material inside table floats
-\usepackage{tabu}                       % 'tabu' is an excellent table package; it can
-                                        %   automatically size column widths and has a
-                                        %   lot of customizations that other packages do
-                                        %   not. It also has a 'longtabu' environment that
-                                        %   emulates 'longtable' with additional features
-                                        %   from the 'tabu' package. If you don't want
-                                        %   to use it, you can comment this line out.
 \BeforeBeginEnvironment{table}%         % Single space inside table environment
   {\SingleSpacing}
 \AfterEndEnvironment{table}
@@ -1117,8 +1066,9 @@ $endfor$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Copyright page
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\copyrightpageASU                       %~If you don't want to have a copyright page,
-%   comment out this line
+$if(thesis.copyright)$
+\copyrightpageASU                       %~If you don't want to have a copyright page, comment out this line
+$endif$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Front matter
@@ -1129,52 +1079,42 @@ $endfor$
 
 
 \chapter*{Abstract}                     % Abstract is required
-\input{$thesis.frontmatter.abstract$}             %<Enter the name of the .tex file containing your
-%   your abstract or omit this line and type in
-%   your abstract here.
+\input{$thesis.frontmatter.abstract$}
 
 $if(thesis.frontmatter.dedication)$
-\chapter*{Dedication}                   %~Dedication is optional
-%\clearpage                             %~If you don't wish to display the heading
-%   'Dedication', comment out the previous line
-%   and use this one instead.
-\input{$thesis.frontmatter.dedication$}           %<Enter the name of the .tex file containing your
-%   your dedication or omit this line and type in
-%   your dedication here.
+\chapter*{Dedication}
+\input{$thesis.frontmatter.dedication$}
 $endif$
 
 $if(thesis.frontmatter.acknowledgments)$
-\chapter*{Acknowledgments}              %~Acknowledgments are optional
-\input{$thesis.frontmatter.acknowledgments$}      %<Enter the name of the .tex file containing your
-%   acknowledgments or omit this line and type in
-%   your acknowledgments here.
+\chapter*{Acknowledgments}
+\input{$thesis.frontmatter.acknowledgments$}
 $endif$
 
-% \iftoggle{usemicrotype}                 % If 'microtype' is in use, turn off protrusion
-% {\microtypesetup{protrusion=false}}%  %   for TOC
-% {}
-% \clearpage                              % Output table of contents on a new page
-% \contentslistsetup                      % Change page layout for contents lists
+\iftoggle{usemicrotype}                 % If 'microtype' is in use, turn off protrusion
+{\microtypesetup{protrusion=false}}%  %   for TOC
+{}
 
-% \pagestyle{ASUtoc}
-% \tableofcontents*                       % Starred version leaves TOC heading out of TOC
-% \addtocontents{toc}%                    % List of ... needs to be on left margin, but
-% {\setlength{\cftchapterindent}%       %   they inherit 'chapter' formatting, so override
-% 	{0em}%
-% }
+\clearpage                              % Output table of contents on a new page
+\contentslistsetup                      % Change page layout for contents lists
+
+\pagestyle{ASUtoc}
+\tableofcontents*                       % Starred version leaves TOC heading out of TOC
+\addtocontents{toc}%                    % List of ... needs to be on left margin, but
+{\setlength{\cftchapterindent}%       %   they inherit 'chapter' formatting, so override
+	{0em}%
+}
 
 % \clearpage
 % \ifnumcomp{\tottab}{>}{0}{%
 % 	\pagestyle{ASUlot}
-% 	\listoftables                         % List of Tables should appear in TOC, so use
-% 	%   unstarred version of \listoftables
+% 	\listoftables                         % List of Tables should appear in TOC, so use unstarred version of \listoftables
 % 	\clearpage
 % }{}
 
 % \ifnumcomp{\totfig}{>}{0}{%
 % 	\pagestyle{ASUlof}
-% 	\listoffigures                        % List of Figures should appear in TOC, so use
-% 	%   unstarred version of \listoffigures
+% 	\listoffigures                        % List of Figures should appear in TOC, so use unstarred version of \listoffigures
 % }{}
 
 $if(thsis.frontmatter.definitions)$
@@ -1198,15 +1138,15 @@ $endif$
 \setlength{\afterchapskip}%             % Set vertical space between chapter title and
 {\baselineskip}                       %   first paragraph; equivalent to two line breaks
 
-% \phantomsection
-% \addcontentsline{toc}{part}{Chapter}    % Add "Chapter" to TOC here at 'part' level
-% \phantomsection
-% \addtocontents{toc}%                    % Add this 'mark' to TOC so subsequent pages use
-% {\protect\markboth{CHAPTER}{Page}}    %   the "CHAPTER" heading
+\phantomsection
+\addcontentsline{toc}{part}{Chapter}    % Add "Chapter" to TOC here at 'part' level
+\phantomsection
+\addtocontents{toc}%                    % Add this 'mark' to TOC so subsequent pages use
+{\protect\markboth{CHAPTER}{Page}}    %   the "CHAPTER" heading
 
-% \iftoggle{usemicrotype}                 % If 'microtype' is in use, turn protrusion back
-% {\microtypesetup{protrusion=true}}%   %   on
-% {}
+\iftoggle{usemicrotype}                 % If 'microtype' is in use, turn protrusion back
+{\microtypesetup{protrusion=true}}%   %   on
+{}
 
 \clearpage                              % Note: All these changes have to be above a
 %   a '\clearpage' before '\mainmatter'

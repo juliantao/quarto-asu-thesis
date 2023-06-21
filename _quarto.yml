@@ -32,6 +32,7 @@ thesis:
   keywords: # up to six
     - lorem
     - ipsum
+  copyright: true
   frontmatter:
     abstract: "./frontmatter/abstract.tex"
     dedication: "./frontmatter/dedication.tex"
@@ -48,6 +49,7 @@ bibliography: thesisrefs.bib
 format:
   asudis-pdf:
     keep-tex: true
+    pdf-engine: pdflatex
 
 execute:
   freeze: auto

@@ -7,12 +7,13 @@ book:
   description: "A thesis submitted for the degree of Doctor of Philosophy at Arizona State University in 2023. Ira A. Fulton Schools of Engineering"
   chapters: # include index and all chapters except chapter 1
     - index.qmd # this is chapter 1
-    - "./chapters/02-chap2.qmd" 
+    - "02-chap2.qmd"
   appendices:
-    - "./appendices/A-appA.qmd"
-  references: "./backmatter/refs.qmd"
+    - "A-appA.qmd"
+    - "A-appB.qmd"
+  references: "10-refs.qmd"
   page-footer:
-    left: "Created using <a href='https://quarto.org'>Quarto</a>. © 2023, John Doe Su"
+    left: "Created using <a href='https://quarto.org'>Quarto</a>. ©2023, John Doe"
     border: false
     background: light
   sidebar:
@@ -34,17 +35,17 @@ thesis:
     - ipsum
   copyright: true
   frontmatter:
-    abstract: "./frontmatter/abstract.tex"
-    dedication: "./frontmatter/dedication.tex"
-    acknowledgments: "./frontmatter/acknowledgements.tex"
+    abstract: "00-abstract.tex"
+    dedication: "00-dedication.tex"
+    acknowledgments: "00-acknowledgements.tex"
   backmatter:
-    biosketch: "./backmatter/biosketch.tex"
+    biosketch: "99-biosketch.tex"
 
 published-title: "Last updated"
 date-format: "DD MMMM YYYY"
 number-depth: 2
 bibliography: thesisrefs.bib
-# suppress-bibliography: true
+csl: asudis.csl
 
 format:
   asudis-pdf:

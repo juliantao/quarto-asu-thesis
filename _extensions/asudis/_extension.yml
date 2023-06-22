@@ -11,12 +11,12 @@ contributes:
       shortcodes:
         # You can include here Lua filters defining shortcodes from your extension
         - shortcodes.lua
+      link-citations: true
     pdf:
       template: asudis.tex
       colorlinks: true
-      urlcolor: red
       format-resources:
-        - asudis.bst
+        - asudis.csl
     html:
       # define default configuration for the html version of your format
       number-sections: true

@@ -143,7 +143,7 @@ Table: This table caption refers to another caption: see @fig-figexample.
 
 See @fig-figexample for an example of a figure.
 
-![Antidorcas marsupialis, male](../img/antidorcas.png){#fig-figexample}
+![Antidorcas marsupialis, male](./img/antidorcas.png){#fig-figexample}
 
 ## Math examples
 

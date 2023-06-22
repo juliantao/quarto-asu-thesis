@@ -23,7 +23,7 @@
 % (Some) Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{newtxtext,newtxmath}        % Times New Roman
-\usepackage{graphicx}                   % For importing image files
+\usepackage{graphicx, setspace}                   % For importing image files
 \usepackage{etoolbox}                   % For advanced commands throughout preamble
 \usepackage[dvipsnames]{xcolor}
 \usepackage{microtype}                  %~Improves kerning and protrusion (optional);
@@ -130,6 +130,11 @@ $endfor$
 \BeforeBeginEnvironment{quotation}%
   {\par\SingleSpacing}
 \AfterEndEnvironment{quotation}%
+  {\vspace{-\baselineskip} %
+  \DoubleSpacing}
+\BeforeBeginEnvironment{verbatim}          
+  {\par\SingleSpacing}                    
+\AfterEndEnvironment{verbatim}%            
   {\vspace{-\baselineskip} %
   \DoubleSpacing}
 
@@ -632,79 +637,47 @@ $endfor$
     {\par\vspace{\baselineskip}}
 }{}                                     % Do nothing here if not using endnotes
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newcommand{\bibfilename}{%             %<Enter the name of the *.bib file containing the
-%   $bibliography$                        %   reference information for sources cited in
-% }%                                      %   the text. God help you if you're doing
-%                                         %   citations manually.
-
-% \newcommand{\bibheading}{References}    %<Enter the heading for the references section:
-%                                         %   'References', 'Works Cited', or 'Bibliography'
-
-% \providetoggle{usebiblatex}             % True = a biblatex package is being used;
-%                                         %   False = 'natbib' is being used
-% \settoggle{usebiblatex}{true}           %~Set to 'false' to use 'natbib' intead of
-%                                         %   biblatex; I strongly recommend using biblatex
-%                                         %   because natbib is rather old and will break
-%                                         %   for innocuous things like underscores in URLs
-% \iftoggle{usebiblatex}{%                % Settings for citation package
-% %                                       % Settings for 'biblatex' or a version of
-% %                                       %   'biblatex'
-%   \usepackage[authordate,%
-%               backend=biber,%           % Recommend to use 'biber' instead of 'bibtex'
-%               doi=only,%                % Avoid printing URLs
-%               isbn=false]%              % Don't print ISBN numbers
-%               {biblatex-chicago}        %~Other possibilities include: 'biblatex',
-%                                         %   'biblatex-apa', and 'biblatex-mla'
-%   \bibliography{\bibfilename}
-%   \setlength{\bibitemsep}%              % Set vertical distance between
-%     {0.5\baselineskip}%                 %   bibliography entries
-%   \setcounter{biburlnumpenalty}{9000}   % Break URLs in bibliography across lines
-%   \setcounter{biburlucpenalty}{9000}
-%   \setcounter{biburllcpenalty}{9000}
-
-%   \usepackage[style=american,%          % Settings for quotation marks; load after
-%     english=american]{csquotes}%        %   'inputenc'; only use with biblatex; throws
-%   \MakeOuterQuote{"}%                   %   error when used with natbib
-% }{%                                     % Settings for 'natbib'
-%   \usepackage{natbib}%
-%   \newcommand{\natbibstyle}{%           %~Enter the name of the *.bst file to use to
-%     asudis%                         %   format citations with natbib. Default is
-%   }%                                    %   'asudis'. I do not know where 'asudis' came
-%                                         %   from, but apparently it formats citations
-%                                         %   correctly because it was included with the
-%                                         %   previous LaTeX template.
-% }
-
 %% To make quarto/rmarkdown work
 
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
-\newenvironment{CSLReferences}%
-{\setlength{\parindent}{0pt}%
-\everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
-{\par}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\BeforeBeginEnvironment{CSLReferences}             
+  {\par\SingleSpacing}                  
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tables and figures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\indentcaption{3.5em}
-\captionnamefont{\small\sffamily}
-\captiontitlefont{\small\sffamily}
+\usepackage{caption}
+\captionsetup{font={stretch=1}}
+\captionnamefont{\sffamily}
+\captiontitlefont{\sffamily}
 \captiondelim{. }                       %~Use period (.) after caption number instead of
                                         %   colon (:). Change according to style guide.
 \captionstyle[\raggedright]%            % Set justifcation for [one line captions]
   {\raggedright}                        %   and {multiple line captions}
-% \setlength{\belowcaptionskip}{2pt}      % Bring caption down closer to figure/table
-\makeatletter                           % Consecutive numbering throughout
-  \counterwithout{figure}{chapter}      %   (including back matter)
-  \counterwithout{table}{chapter}
-  \renewcommand\@memfront@floats{}
-  \renewcommand\@memmain@floats{}
-  \renewcommand\@memback@floats{}
-\makeatletter
 
 \newcommand{\macrocapwrap}[1]{%         % Use this macro to place other macros inside
   {\bgroup\bgroup{{#1}}\egroup\egroup}% %   captions, e.g., '\macrocapwrap{\ref{figure1}}'
@@ -732,6 +705,18 @@ $endfor$
   {\SingleSpacing}
 \AfterEndEnvironment{figure}
   {\DoubleSpacing}
+
+\makeatletter                           % Define custom macro called '\maxwidth{}' that
+  \def\maxwidth#1{%                     %   allows you to specify the maximum width of an
+    \ifdim%                             %   imported image. See below for an example.
+      \Gin@nat@width>#1 #1%             %
+    \else%                              % Source: http://tex.stackexchange.com/questions/86350/includegraphics-maximum-width
+      \Gin@nat@width%
+    \fi}
+\makeatother
+
+\setkeys{Gin}{width=\maxwidth{\textwidth},keepaspectratio}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperref settings
@@ -1057,89 +1042,6 @@ $body$
 \edef\defaulttolerance{\the\tolerance}
 \tolerance 500                          % Increase tolerance to prevent material extending into margins
 \hbadness 500
-
-\iftoggle{useendnotes}{%                % If you're using endnotes, output them here
-	\setsecnumdepth{none}                 % No section numbering in end notes
-	\bookmarksetup{startatroot}           % Make Notes appear at root level of PDF bookmarks
-	\phantomsection%                      % Need for hyperref
-	\addcontentsline{toc}{chapter}{%      % Add a chapter-level heading for
-		\hspace{-\cftchapterindent}%        %  Notes to the ToC
-		\notesname%
-	}%
-	\renewcommand*{\notedivision}{%
-		\chapter*{\notesname}%
-	}
-	\printpagenotes                       % Output the notes
-	\setsecnumdepth{all}%                 % Turn section numbering back on after printing
-}{}
-
-% \bookmarksetup{startatroot}
-% \chapter*{\bibheading}                  % In the running text, use a chapter-level heading
-% % for the bibliography section
-% \phantomsection
-% \addcontentsline{toc}{chapter}{%        % In the TOC, add a custom chapter-level heading
-% 	\hspace{-\cftchapterindent}%          % that will be flush against the left margin
-% 	\bibheading%
-% }
-% %\phantomsection
-% %\addtocontents{toc}%                    % Add this 'mark' to TOC so subsequent pages use
-% %  {\protect\markboth{\bibheading}{Page}}%   the bibliography heading (unlikely since
-% %                                        %   the appendices follow quickly)
-% \iftoggle{usebiblatex}{%                % Output the bibliography
-% 	\printbibliography[heading=none]      % Using a 'biblatex' package; do not let
-% 	%   'biblatex' output a heading
-% }{%
-% 	\renewcommand\bibsection{}            % Do not let 'natbib' output a heading
-% 	\bibliographystyle{\natbibstyle}      % Using 'natbib' to print bibliography
-% 	\bibliography{\bibfilename}
-% }
-
-\appendix                               % Indicate start of appendices
-% Appendices are considered 'mainmatter' in this
-%   documentclass
-\tolerance \defaulttolerance            % Set tolerance back to default
-\hbadness \defaulttolerance
-
-\addtocontents{toc}{\protect%           % Only include appendix title in table of contents
-	\setcounter{tocdepth}{0}}%            %   and omit sub-headings
-\renewcommand*{\chapnamefont}%          % Reset font for 'Appendix' in chapter titles
-{\normalfont\MakeTextUppercase}
-\makeatletter                           % Clear page after printing appendix title
-\renewcommand{\memendofchapterhook}%
-{%
-	\clearpage
-	\m@mindentafterchapter
-	\@afterheading
-}
-\makeatother
-
-\phantomsection                         % Need '\phantomsection' to place hyperref
-%   bookmark more accurately
-\addcontentsline{toc}{part}{Appendix}   %~Add "Appendix" to TOC here; comment out this
-%   line if you're not including appendices
-
-%\phantomsection                        %!This is the one part of the template that I
-%\addtocontents{toc}%                   %   could not get to work properly. After you
-%  {\protect\markboth{APPENDIX}{Page}}  %   start listing appendices in the TOC,
-%   subsequent TOC pages should use "APPENDIX in
-%   the header instead of "CHAPTER"; however,
-%   this code will make "APPENDIX" appear on the
-%   the same page that the *first* appendix
-%   appears on. This problem won't affect most
-%   people, but if it affects you, uncomment
-%   these lines and move them below where
-%   the appendices are listed. Keep moving these
-%   lines down and checking the output until
-%   the TOC headers appear correctly
-
-%\input{appendix1}                       %~Insert your appendices here; I recommend to use
-%\input{appendix2}                       %   \input rather than \include for appendices.
-%\input{appendix3}% etc.                 %   All heading commands are the same as above,
-%   e.g., \chapter, \section, etc.
-
-$for(thesis.backmatter.appendices)$
-\input{$thesis.backmatter.appendices$}
-$endfor$
 
 \backmatter                             % Start back matter according to documentclass
 \makeatletter                           % Do not clear page after printing title for

@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "A Thesis Submitted for a PhD degree at ASU",
+    "section": "",
+    "text": "1 Introduction\nThis is where you introduce the main ideas of your thesis, and an overview of the context and background.\nIn a PhD, Chapter 2 would normally contain a literature review. Typically, Chapters 3–5 would contain your own contributions. Think of each of these as potential papers to be submitted to journals. Finally, Chapter 6 provides some concluding remarks, discussion, ideas for future research, and so on. Appendixes can contain additional material that don’t fit into any chapters, but that you want to put on record. For example, additional tables, output, etc."
+  },
+  {
+    "objectID": "index.html#quarto",
+    "href": "index.html#quarto",
+    "title": "A Thesis Submitted for a PhD degree at ASU",
+    "section": "\n1.1 Quarto",
+    "text": "1.1 Quarto\nIn this template, the rest of the chapter shows how to use quarto. The big advantage of using quarto is that it allows you to include your R or Python code directly into your thesis, to ensure there are no errors in copying and pasting, and that everything is reproducible. It also helps you stay better organized.\nFor details on using Quarto, see http://quarto.org."
+  },
+  {
+    "objectID": "index.html#data",
+    "href": "index.html#data",
+    "title": "A Thesis Submitted for a PhD degree at ASU",
+    "section": "\n1.2 Data",
+    "text": "1.2 Data\nIncluded in this template is a file called sales.csv. This contains quarterly data on Sales and Advertising budget for a small company over the period 1981–2005. It also contains the GDP (gross domestic product) over the same period. All series have been adjusted for inflation. We can load in this data set using the following code:\nAny data you use in your thesis can go into the data directory. The data should be in exactly the format you obtained it. Do no editing or manipulation of the data prior to including it in the data directory. Any data munging should be scripted and form part of your thesis files (possibly hidden in the output)."
+  },
+  {
+    "objectID": "index.html#figures",
+    "href": "index.html#figures",
+    "title": "A Thesis Submitted for a PhD degree at ASU",
+    "section": "\n1.3 Figures",
+    "text": "1.3 Figures\nFigure 1.1 shows time plots of the data we just loaded. Notice how figure captions and references work. Chunk names can be used as figure labels with fig- prefixed. Never manually type figure numbers, as they can change when you add or delete figures. This way, the figure numbering is always correct.\n\n\n\n\nFigure 1.1: Quarterly sales, advertising and GDP data."
+  },
+  {
+    "objectID": "index.html#results-from-analyses",
+    "href": "index.html#results-from-analyses",
+    "title": "A Thesis Submitted for a PhD degree at ASU",
+    "section": "\n1.4 Results from analyses",
+    "text": "1.4 Results from analyses\nWe can fit a dynamic regression model to the sales data.\n\n\nSeries: Sales \nModel: LM w/ ARIMA(1,0,0)(0,1,1)[4] errors \n\nCoefficients:\n         ar1     sma1     GDP  AdBudget\n      0.2189  -0.9016  0.9742    2.2824\ns.e.  0.1022   0.0715  0.4387    0.3930\n\nsigma^2 estimated as 1677:  log likelihood=-493.94\nAIC=997.87   AICc=998.54   BIC=1010.69\n\n\nIf \\(y_t\\) denotes the sales in quarter \\(t\\), \\(x_t\\) denotes the corresponding advertising budget and \\(z_t\\) denotes the GDP, then the resulting model is: \\[\n  y_t - y_{t-4} = \\beta (x_t-x_{t-4}) + \\gamma (z_t-z_{t-4}) + \\phi_1 (y_{t-1} - y_{t-5}) + \\Theta_1 \\varepsilon_{t-4} + \\varepsilon_t\n\\tag{1.1}\\] where \\(\\beta = 2.28\\), \\(\\gamma = 0.97\\), \\(\\phi_1 = 0.22\\), and \\(\\Theta_1 = -0.90\\). We can reference this equation using Equation 1.1."
+  },
+  {
+    "objectID": "index.html#tables",
+    "href": "index.html#tables",
+    "title": "A Thesis Submitted for a PhD degree at ASU",
+    "section": "\n1.5 Tables",
+    "text": "1.5 Tables\nLet’s assume future advertising spend and GDP are at the current levels. Then forecasts for the next year are given in Table 1.1.\n\n\n\n\nTable 1.1: Forecasts for the next year assuming Advertising budget and GDP are unchanged.\n\nQuarter\nSales forecast\n\n\n\n2006 Q1\n1000.2\n\n\n2006 Q2\n1013.1\n\n\n2006 Q3\n1076.7\n\n\n2006 Q4\n1003.5\n\n\n\n\n\n\nAgain, notice the use of labels and references to automatically generate table numbers."
+  },
+  {
+    "objectID": "02-chap2.html#this-is-the-first-section-level-heading",
+    "href": "02-chap2.html#this-is-the-first-section-level-heading",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.1 This is the first section-level heading",
+    "text": "2.1 This is the first section-level heading\nNam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.\n\nNulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tincidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque felis eu massa.\n\nQuisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta vehicula.\n\n2.1.1 This is the first sub-section-level heading\nNam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.\n\nNulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tincidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque felis eu massa.\n\nQuisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta vehicula.\n\n2.1.1.1 This is the first sub-sub-section-level heading\n\n2.1.1.1.1 This is the first paragraph-level heading\n\nThis is the first sub-paragraph-level heading"
+  },
+  {
+    "objectID": "02-chap2.html#citation-examples",
+    "href": "02-chap2.html#citation-examples",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.2 Citation examples",
+    "text": "2.2 Citation examples\nThe contents of this section differ depending on the bibliography settings, specifically whether the ‘usebiblatex’ toggle is set to ‘true’ or ‘false’. This sentence shows citation with natbib (Pathak et al. 2007). This is another sentence showing citation with natbib (Searchinger et al. 2013)."
+  },
+  {
+    "objectID": "02-chap2.html#footnote-examples",
+    "href": "02-chap2.html#footnote-examples",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.3 Footnote examples",
+    "text": "2.3 Footnote examples\nThis is a sentence followed by a footnote.1 This is another sentence followed by a footnote.2"
+  },
+  {
+    "objectID": "02-chap2.html#block-quote-example",
+    "href": "02-chap2.html#block-quote-example",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.4 Block quote example",
+    "text": "2.4 Block quote example\nThe following is a block quote:"
+  },
+  {
+    "objectID": "02-chap2.html#endnote-examples",
+    "href": "02-chap2.html#endnote-examples",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.5 Endnote examples",
+    "text": "2.5 Endnote examples\nEndnotes appear in a separate section after chapters and before the reference list. This is a sentence followed by a endnote. This is another sentence followed by a endnote. And here is a really long endnote to show formatting across several pages."
+  },
+  {
+    "objectID": "02-chap2.html#table-example",
+    "href": "02-chap2.html#table-example",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.6 Table example",
+    "text": "2.6 Table example\nSee Table 2.1 for an example of a table. Citing another reference in caption is also straightforward. See Table 2.2 for a demonstration.\n\n\nTable 2.1: Here is a table caption that is especially long to show what happens when it extends to more than one line in the table of contents\n\n\nColumn1\nColumn2\nColumn3\n\n\n\n\nRow1\n1.0\n2.0\n\n\nRow2\n2.0\n4.0\n\n\nRow1\n3.0\n6.0\n\n\n\n\n\n\nTable 2.2: This table caption refers to another caption: see Figure 2.1.\n\n\nColumn1\nColumn2\nColumn3\n\n\n\n\nRow1\n1.0\n2.0\n\n\nRow2\n2.0\n4.0\n\n\nRow1\n3.0\n6.0\n\n\n\n\n\nThis table caption refers to another caption: see Figure 2.1.\n\n\nColumn1\nColumn2\nColumn3\n\n\n\n\nRow1\n1.0\n2.0\n\n\nRow2\n2.0\n4.0\n\n\nRow1\n3.0\n6.0"
+  },
+  {
+    "objectID": "02-chap2.html#figure-example",
+    "href": "02-chap2.html#figure-example",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.7 Figure example",
+    "text": "2.7 Figure example\nSee Figure 2.1 for an example of a figure.\n\n\n\nFigure 2.1: Antidorcas marsupialis, male"
+  },
+  {
+    "objectID": "02-chap2.html#math-examples",
+    "href": "02-chap2.html#math-examples",
+    "title": "2  This is a chapter-level heading",
+    "section": "2.8 Math examples",
+    "text": "2.8 Math examples\nThis section contains some math-heavy text adapted from Wilkins (1995). In non-relativistic wave mechanics, the wave function \\(\\psi(\\mathbf{r},t)\\) of a particle satisfies the Schrödinger Wave Equation \\[i\\hbar\\frac{\\partial \\psi}{\\partial t}\n    = \\frac{-\\hbar^2}{2m} \\left(\n    \\frac{\\partial^2}{\\partial x^2}\n    + \\frac{\\partial^2}{\\partial y^2}\n    + \\frac{\\partial^2}{\\partial z^2}\n    \\right) \\psi + V \\psi.\\] It is customary to normalize the wave equation by demanding that \\[\\int \\!\\!\\! \\int \\!\\!\\! \\int_{\\textbf{R}^3}\n    \\left| \\psi(\\mathbf{r},0) \\right|^2\\,dx\\,dy\\,dz = 1.\\] A simple calculation using the Schrödinger wave equation shows that \\[\\frac{d}{dt} \\int \\!\\!\\! \\int \\!\\!\\! \\int_{\\textbf{R}^3}\n    \\left| \\psi(\\mathbf{r},t) \\right|^2\\,dx\\,dy\\,dz = 0,\\] and hence \\[\\int \\!\\!\\! \\int \\!\\!\\! \\int_{\\textbf{R}^3}\n    \\left| \\psi(\\mathbf{r},t) \\right|^2\\,dx\\,dy\\,dz = 1\\] for all times \\(t\\). If we normalize the wave function in this way then, for any (measurable) subset \\(V\\) of \\(\\textbf{R}^3\\) and time \\(t\\), \\[\\int \\!\\!\\! \\int \\!\\!\\! \\int_V\n    \\left| \\psi(\\mathbf{r},t) \\right|^2\\,dx\\,dy\\,dz\\] represents the probability that the particle is to be found within the region \\(V\\) at time \\(t\\).\n\n\n\n\nPathak, P, SP Wani, R Sudi, AK Chourasia, SN Singh, and Kesava Rao. 2007. Rural Prosperity Through Integrated Watershed Management: A Case Study of Gokulpura–Goverdhanpura in Eastern Rajasthan. Global Theme on Agroecosystems 36. Patancheru, India: International Crops Research Institute for the Semi-Arid Tropics (ICRISAT). http://www.icrisat.org/Journal/volume5/aes/aes6.pdf.\n\n\nSearchinger, Tim, Craig Hanson, Janet Ranganathan, Brian Lipinski, Richard Waite, Robert Winterbottom, Ayesha Dinshaw, and Ralph Heimlich. 2013. World Resources Report 2013–14: Interim Findings—Creating a Sustainable Food Future. Washington, DC: World Resources Institute. http://www.wri.org/sites/default/files/WRI13_Report_4c_WRR_online.pdf.\n\n\nWilkins, David R. 1995. Getting Started with LaTeX. 2nd ed. http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/."
+  },
+  {
+    "objectID": "A-appA.html",
+    "href": "A-appA.html",
+    "title": "Appendix A — Additional stuff",
+    "section": "",
+    "text": "You might put some computer output here, or maybe additional tables. It is possible to have multiple appendices. Just list them in the appropriate place within _quarto.yml."
+  },
+  {
+    "objectID": "A-appB.html#a-section-in-appendix",
+    "href": "A-appB.html#a-section-in-appendix",
+    "title": "Appendix B — Another Appendix",
+    "section": "B.1 A section in Appendix",
+    "text": "B.1 A section in Appendix\n\nB.1.1 A subsection in Appendix"
+  }
+]

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-99.9.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A thesis submitted for the degree of Doctor of Philosophy at Arizona State University in 2023. Ira A. Fulton Schools of Engineering">
+
+<title>A Thesis Submitted for a PhD degree at ASU - 2&nbsp; This is a chapter-level heading</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./10-refs.pdf" rel="next">
+<link href="./index.pdf" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-chap2.pdf"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">This is a chapter-level heading</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">A Thesis Submitted for a PhD degree at ASU</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./A-Thesis-Submitted-for-a-PhD-degree-at-ASU.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./A-Thesis-Submitted-for-a-PhD-degree-at-ASU.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.pdf</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-chap2.pdf" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">This is a chapter-level heading</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-refs.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">REFERENCES</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-appA.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Additional stuff</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-appB.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Another Appendix</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#this-is-the-first-section-level-heading" id="toc-this-is-the-first-section-level-heading" class="nav-link active" data-scroll-target="#this-is-the-first-section-level-heading"><span class="header-section-number">2.1</span> This is the first section-level heading</a>
+  <ul class="collapse">
+  <li><a href="#this-is-the-first-sub-section-level-heading" id="toc-this-is-the-first-sub-section-level-heading" class="nav-link" data-scroll-target="#this-is-the-first-sub-section-level-heading"><span class="header-section-number">2.1.1</span> This is the first sub-section-level heading</a></li>
+  </ul></li>
+  <li><a href="#citation-examples" id="toc-citation-examples" class="nav-link" data-scroll-target="#citation-examples"><span class="header-section-number">2.2</span> Citation examples</a></li>
+  <li><a href="#footnote-examples" id="toc-footnote-examples" class="nav-link" data-scroll-target="#footnote-examples"><span class="header-section-number">2.3</span> Footnote examples</a></li>
+  <li><a href="#block-quote-example" id="toc-block-quote-example" class="nav-link" data-scroll-target="#block-quote-example"><span class="header-section-number">2.4</span> Block quote example</a></li>
+  <li><a href="#endnote-examples" id="toc-endnote-examples" class="nav-link" data-scroll-target="#endnote-examples"><span class="header-section-number">2.5</span> Endnote examples</a></li>
+  <li><a href="#table-example" id="toc-table-example" class="nav-link" data-scroll-target="#table-example"><span class="header-section-number">2.6</span> Table example</a></li>
+  <li><a href="#figure-example" id="toc-figure-example" class="nav-link" data-scroll-target="#figure-example"><span class="header-section-number">2.7</span> Figure example</a></li>
+  <li><a href="#math-examples" id="toc-math-examples" class="nav-link" data-scroll-target="#math-examples"><span class="header-section-number">2.8</span> Math examples</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-style" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">This is a chapter-level heading</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="this-is-the-first-section-level-heading" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="this-is-the-first-section-level-heading"><span class="header-section-number">2.1</span> This is the first section-level heading</h2>
+<p>Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.</p>
+<blockquote class="blockquote">
+<p>Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tincidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque felis eu massa.</p>
+</blockquote>
+<p>Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta vehicula.</p>
+<section id="this-is-the-first-sub-section-level-heading" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="this-is-the-first-sub-section-level-heading"><span class="header-section-number">2.1.1</span> This is the first sub-section-level heading</h3>
+<p>Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus luctus mauris.</p>
+<blockquote class="blockquote">
+<p>Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat at, tincidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend at, accumsan nec, suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel magna. Integer non enim. Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam vulputate metus eu enim. Vestibulum pellentesque felis eu massa.</p>
+</blockquote>
+<p>Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet, enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis tortor vitae risus porta vehicula.</p>
+<section id="this-is-the-first-sub-sub-section-level-heading" class="level4" data-number="2.1.1.1">
+<h4 data-number="2.1.1.1" class="anchored" data-anchor-id="this-is-the-first-sub-sub-section-level-heading"><span class="header-section-number">2.1.1.1</span> This is the first sub-sub-section-level heading</h4>
+<section id="this-is-the-first-paragraph-level-heading" class="level5" data-number="2.1.1.1.1">
+<h5 data-number="2.1.1.1.1" class="anchored" data-anchor-id="this-is-the-first-paragraph-level-heading"><span class="header-section-number">2.1.1.1.1</span> This is the first paragraph-level heading</h5>
+<section id="this-is-the-first-sub-paragraph-level-heading" class="level6">
+<h6 class="anchored" data-anchor-id="this-is-the-first-sub-paragraph-level-heading">This is the first sub-paragraph-level heading</h6>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="citation-examples" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="citation-examples"><span class="header-section-number">2.2</span> Citation examples</h2>
+<p>The contents of this section differ depending on the bibliography settings, specifically whether the ‘usebiblatex’ toggle is set to ‘true’ or ‘false’. This sentence shows citation with natbib <span class="citation" data-cites="pathak_rural_2007">(<a href="10-refs.pdf#ref-pathak_rural_2007" role="doc-biblioref">Pathak et al. 2007</a>)</span>. This is another sentence showing citation with natbib <span class="citation" data-cites="searchinger_world_2013">(<a href="10-refs.pdf#ref-searchinger_world_2013" role="doc-biblioref">Searchinger et al. 2013</a>)</span>.</p>
+</section>
+<section id="footnote-examples" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="footnote-examples"><span class="header-section-number">2.3</span> Footnote examples</h2>
+<p>This is a sentence followed by a footnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> This is another sentence followed by a footnote.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="block-quote-example" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="block-quote-example"><span class="header-section-number">2.4</span> Block quote example</h2>
+<p>The following is a block quote:</p>
+</section>
+<section id="endnote-examples" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="endnote-examples"><span class="header-section-number">2.5</span> Endnote examples</h2>
+<p>Endnotes appear in a separate section after chapters and before the reference list. This is a sentence followed by a endnote. This is another sentence followed by a endnote. And here is a really long endnote to show formatting across several pages.</p>
+</section>
+<section id="table-example" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="table-example"><span class="header-section-number">2.6</span> Table example</h2>
+<p>See <a href="#tbl-table1" class="quarto-xref">Table&nbsp;<span>2.1</span></a> for an example of a table. Citing another reference in caption is also straightforward. See <a href="#tbl-table2" class="quarto-xref">Table&nbsp;<span>2.2</span></a> for a demonstration.</p>
+<div id="tbl-table1" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.1: Here is a table caption that is especially long to show what happens when it extends to more than one line in the table of contents</caption>
+<thead>
+<tr class="header">
+<th>Column1</th>
+<th>Column2</th>
+<th>Column3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row1</td>
+<td>1.0</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>Row2</td>
+<td>2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td>Row1</td>
+<td>3.0</td>
+<td>6.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-table2" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.2: This table caption refers to another caption: see <a href="#fig-figexample" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>.</caption>
+<thead>
+<tr class="header">
+<th>Column1</th>
+<th>Column2</th>
+<th>Column3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row1</td>
+<td>1.0</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>Row2</td>
+<td>2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td>Row1</td>
+<td>3.0</td>
+<td>6.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table class="table">
+<caption>This table caption refers to another caption: see <a href="#fig-figexample" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>.</caption>
+<thead>
+<tr class="header">
+<th>Column1</th>
+<th>Column2</th>
+<th>Column3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Row1</td>
+<td>1.0</td>
+<td>2.0</td>
+</tr>
+<tr class="even">
+<td>Row2</td>
+<td>2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td>Row1</td>
+<td>3.0</td>
+<td>6.0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="figure-example" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="figure-example"><span class="header-section-number">2.7</span> Figure example</h2>
+<p>See <a href="#fig-figexample" class="quarto-xref">Figure&nbsp;<span>2.1</span></a> for an example of a figure.</p>
+<div id="fig-figexample" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./img/antidorcas.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: Antidorcas marsupialis, male</figcaption>
+</figure>
+</div>
+</section>
+<section id="math-examples" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="math-examples"><span class="header-section-number">2.8</span> Math examples</h2>
+<p>This section contains some math-heavy text adapted from <span class="citation" data-cites="dwilkins1995">Wilkins (<a href="10-refs.pdf#ref-dwilkins1995" role="doc-biblioref">1995</a>)</span>. In non-relativistic wave mechanics, the wave function <span class="math inline">\(\psi(\mathbf{r},t)\)</span> of a particle satisfies the Schrödinger Wave Equation <span class="math display">\[i\hbar\frac{\partial \psi}{\partial t}
+    = \frac{-\hbar^2}{2m} \left(
+    \frac{\partial^2}{\partial x^2}
+    + \frac{\partial^2}{\partial y^2}
+    + \frac{\partial^2}{\partial z^2}
+    \right) \psi + V \psi.\]</span> It is customary to normalize the wave equation by demanding that <span class="math display">\[\int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+    \left| \psi(\mathbf{r},0) \right|^2\,dx\,dy\,dz = 1.\]</span> A simple calculation using the Schrödinger wave equation shows that <span class="math display">\[\frac{d}{dt} \int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+    \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz = 0,\]</span> and hence <span class="math display">\[\int \!\!\! \int \!\!\! \int_{\textbf{R}^3}
+    \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz = 1\]</span> for all times&nbsp;<span class="math inline">\(t\)</span>. If we normalize the wave function in this way then, for any (measurable) subset&nbsp;<span class="math inline">\(V\)</span> of <span class="math inline">\(\textbf{R}^3\)</span> and time&nbsp;<span class="math inline">\(t\)</span>, <span class="math display">\[\int \!\!\! \int \!\!\! \int_V
+    \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz\]</span> represents the probability that the particle is to be found within the region&nbsp;<span class="math inline">\(V\)</span> at time&nbsp;<span class="math inline">\(t\)</span>.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-pathak_rural_2007" class="csl-entry" role="listitem">
+Pathak, P, SP Wani, R Sudi, AK Chourasia, SN Singh, and Kesava Rao. 2007. <em>Rural Prosperity Through Integrated Watershed Management: A Case Study of Gokulpura–Goverdhanpura in Eastern Rajasthan</em>. Global Theme on Agroecosystems 36. Patancheru, India: International Crops Research Institute for the Semi-Arid Tropics (<span>ICRISAT</span>). <a href="http://www.icrisat.org/Journal/volume5/aes/aes6.pdf">http://www.icrisat.org/Journal/volume5/aes/aes6.pdf</a>.
+</div>
+<div id="ref-searchinger_world_2013" class="csl-entry" role="listitem">
+Searchinger, Tim, Craig Hanson, Janet Ranganathan, Brian Lipinski, Richard Waite, Robert Winterbottom, Ayesha Dinshaw, and Ralph Heimlich. 2013. <em>World Resources Report 2013–14: Interim Findings—Creating a Sustainable Food Future</em>. Washington, <span>DC</span>: World Resources Institute. <a href="http://www.wri.org/sites/default/files/WRI13_Report_4c_WRR_online.pdf">http://www.wri.org/sites/default/files/WRI13_Report_4c_WRR_online.pdf</a>.
+</div>
+<div id="ref-dwilkins1995" class="csl-entry" role="listitem">
+Wilkins, David R. 1995. <em>Getting Started with LaTeX</em>. 2nd ed. <a href="http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/">http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/</a>.
+</div>
+</div>
+</section>
+<aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices biben- dum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Mauris ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel leo ultrices biben- dum. Aenean faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      try { hash = new URL(url).hash; } catch {}
+      const id = hash.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note !== null) {
+        try {
+          const html = processXRef(id, note);
+          instance.setContent(html);
+        } finally {
+          instance.enable();
+          instance.show();
+        }
+      } else {
+        // See if we can fetch this
+        fetch(url.split('#')[0])
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.getElementById(id);
+          if (note !== null) {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.pdf" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.pdf</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./10-refs.pdf" class="pagination-link">
+        <span class="nav-page-text">REFERENCES</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Created using <a href="https://quarto.org">Quarto</a>. ©2023, John Doe</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

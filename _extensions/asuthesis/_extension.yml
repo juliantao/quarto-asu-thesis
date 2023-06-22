@@ -1,4 +1,4 @@
-title: ASU Dissertation 
+title: ASU Thesis Quarto Template 
 author: Julian Tao
 version: 0.1.0
 contributes:
@@ -13,14 +13,17 @@ contributes:
         - shortcodes.lua
       link-citations: true
     pdf:
-      template: asudis.tex
+      template: asuthesis.tex
       colorlinks: true
-      format-resources:
-        - asudis.csl
+      csl: asuthesis.csl
+      # format-resources:
+        # - asuthesis.csl
+        # - asuthesis.scss
     html:
       # define default configuration for the html version of your format
       number-sections: true
       toc: true
       theme: 
         - cosmo
-        - custom.scss
+        - asuthesis.scss
+      code-link: true

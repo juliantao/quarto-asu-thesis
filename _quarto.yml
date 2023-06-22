@@ -4,6 +4,7 @@ project:
 book:
   title: "A Thesis Submitted for a PhD degree at ASU"
   author: "John Doe"
+  date: today
   description: "A thesis submitted for the degree of Doctor of Philosophy at Arizona State University in 2023. Ira A. Fulton Schools of Engineering"
   chapters: # include index and all chapters except chapter 1
     - index.qmd # this is chapter 1
@@ -16,9 +17,7 @@ book:
     left: "Created using <a href='https://quarto.org'>Quarto</a>. ©2023, John Doe"
     border: false
     background: light
-  sidebar:
-    background: "#8C1D40"
-    style: "docked"
+  downloads: [pdf, epub]
 
 thesis:
   doctype: Dissertation # Choose from Dissertation, Report, Thesis
@@ -43,15 +42,15 @@ thesis:
 
 published-title: "Last updated"
 date-format: "DD MMMM YYYY"
-number-depth: 2
-bibliography: thesisrefs.bib
-csl: asudis.csl
+number-depth: 5
+bibliography: 99-thesisrefs.bib
 
 format:
-  asudis-pdf:
-    keep-tex: true
+  asuthesis-pdf:
+    keep-tex: false
     pdf-engine: pdflatex
-
+  asuthesis-html: default
+  epub: default # optional
 execute:
   freeze: auto
   echo: false

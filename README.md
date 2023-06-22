@@ -29,7 +29,4 @@ See [Quarto guide](https://quarto.org/docs/extensions/managing.html)
 
 [![PDF version](example/example-pdf.png)](docs/A-Thesis-Submitted-for-a-PhD-degree-at-ASU.pdf)
 
-
-
-
-
+[![Website version](example/example-site.png)](https://juliantao.github.io/quarto-asu-thesis/)

@@ -27,3 +27,6 @@ contributes:
         - cosmo
         - asuthesis.scss
       code-link: true
+      published-title: "Last updated"
+      date-format: "DD MMMM YYYY"
+      number-depth: 5

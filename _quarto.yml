@@ -17,7 +17,7 @@ book:
     left: "Created using <a href='https://quarto.org'>Quarto</a>. ©2023, John Doe"
     border: false
     background: light
-  downloads: [pdf, epub]
+  downloads: [pdf, epub] # optional
 
 thesis:
   doctype: Dissertation # Choose from Dissertation, Report, Thesis
@@ -25,14 +25,15 @@ thesis:
   defdate: July 2023 # Give month (written out fully) and year of the oral defense
   gradmonth: May # Choose from May, August or December 
   gradyear: 2023
-  committeechair: Jane Smith
+  committeechair: 
+    - Jane Smith
   committeemember:
     - Joe Bloggs
     - So-and-so
   keywords: # up to six
     - lorem
     - ipsum
-  copyright: true
+  copyright: true # optional
   frontmatter:
     abstract: "00-abstract.tex"
     dedication: "00-dedication.tex"
@@ -40,16 +41,13 @@ thesis:
   backmatter:
     biosketch: "99-biosketch.tex"
 
-published-title: "Last updated"
-date-format: "DD MMMM YYYY"
-number-depth: 5
 bibliography: 99-thesisrefs.bib
 
 format:
-  asuthesis-pdf:
+  asu-thesis-pdf:
     keep-tex: false
     pdf-engine: pdflatex
-  asuthesis-html: default
+  asu-thesis-html: default
   epub: default # optional
 execute:
   freeze: auto

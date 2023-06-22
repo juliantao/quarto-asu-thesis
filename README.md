@@ -1,53 +1,26 @@
-# Article Format Template (AFT)
+# Quarto Template/Extension for ASU Thesis
 
-<!-- REMOVE THIS IN YOUR FORMAT TEMPLATE -->
-> Template for creating a new journal article format for Quarto. 
->
-> This repository is a [Github Repository Template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) that you should use as a starter to create a new extension format. Click on the "Use this template" button at the top !
->
-> See information about how-to use this repo template inside the template file or its rendered version at <https://quarto-journals.github.io/article-format-template/>
+## Background
 
-<!-- ALL THE BELOW SHOULD BE IN YOUR README -->
+This repo provides a Quarto template/extension to assist the preparation of a thesis/report/dissertation according to ASU guidelines.
 
-This is a Quarto template that assists you in creating a manuscript for Article Format Template journals. You can learn more about ...
+In addition to the [office guide](https://graduate.asu.edu/current-students/completing-your-degree/formatting-your-thesis-or-dissertation), I burrowed ideas from the following sources.
 
-## Creating a New Article
+* The pandoc LaTex template for the PDF format was roughly based on the LaTex [`ASU-Dissertation-Template`](https://github.com/GarenSidonius/ASU-Dissertation-Template).
 
-You can use this as a template to create an article for an AFT journal. To do this, use the following command:
+Modifications were made to the headings, captions and bibliography.
 
-```bash
-quarto use template quarto-journals/article-format-template
-```
+* The repo and `_quarto.yml` structure was inspired by other quarto thesis extensions [`quarto-thesis`](https://github.com/nmfs-opensci/quarto-thesis) and [`monash-quarto-thesis`](https://github.com/numbats/monash-quarto-thesis/tree/main).
 
-This will install the extension and create an example qmd file and bibiography that you can use as a starting place for your article.
+## Use as a `github` template
 
-## Installation For Existing Document
+1. Click the green button `Use this template` to create a new repo for your own.
+2. Update the metadata in the `_quarto.yml` file based on your personal and thesis information
+3. Update the contents for your chapters, appendices, front and back matters such as abstract (required), dedication, acknowledgement, biosketch, and your bibliography file.
+  You can always preview the rendering of the book, `quarto preview`. You can specific the preview format, e.g., `quarto preview --to asuthesis-pdf`
+4. Update the list of chapters in `_quarto.yml` again
+5. Render the book to multiple formats in the root repo directory `quarto render`
 
-You may also use this format with an existing Quarto project or document. From the quarto project or document directory, run the following command to install this format:
+## Use as a Quarto extension
 
-```bash
-quarto install extension quarto-journals/article-format-template
-```
-
-## Usage
-
-To use the format, you can use the format names `aft-pdf` and `aft-html`. For example:
-
-```bash
-quarto render article.qmd --to aft-pdf
-```
-
-or in your document yaml
-
-```yaml
-format:
-  pdf: default
-  aft-pdf:
-    keep-tex: true    
-```
-
-You can view a preview of the rendered template at <https://quarto-journals.github.io/article-format-template/>.
-
-## Format Options
-
-This format does not have specific format option. Include documentation of such option otherwise. See <https://github.com/quarto-journals/elsevier#format-options> for an example.
+See [Quarto guide](https://quarto.org/docs/extensions/managing.html)

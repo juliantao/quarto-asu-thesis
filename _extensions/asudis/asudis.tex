@@ -212,11 +212,9 @@ $endfor$
 \makechapterstyle{ASU}{%                % Define chapter heading style
   \renewcommand*{\chapterheadstart}{}   % Chapter title flush with top margin
   \renewcommand*{\chapnamefont}%        % Set font for 'Chapter' or 'Appendix'
-    {\normalfont}
+    {\MakeUppercase}
   \renewcommand*{\chapnumfont}%         % Set font for number in chapter headings
     {\normalfont}
-  \renewcommand*{\afterchapternum}%     % Insert a double line break after
-    {\\[\baselineskip]}                 %   chapter number
   \renewcommand*{\chaptitlefont}%       % Set font for chapter title name
     {\normalfont}
   \setlength{\afterchapskip}{0pt}       % Set vertical space between chapter title and
@@ -471,100 +469,6 @@ $endfor$
 \setlength{\cftsubparagraphnumwidth}%
   {0.85\cftsubparagraphnumwidth}
 
-% Calculate the indent to the first
-% character in table and figure
-% captions.
-% This is more complicated because the
-% document automatically considers
-% the total number of figures and
-% tables and increases the indent to
-% make room for longer numbers.
-\newcounter{totfigures}                 % Collect the total number of figures
-\newcounter{tottables}                  % Collect the total number of tables
-
-\providecommand\totfig{}                % Retrieve the total number of figures
-\providecommand\tottab{}                % Retrieve the total number of tables
-
-\makeatletter
-\AtEndDocument{%                        % Store the totals
-  \addtocounter{totfigures}{%
-    \value{figure}%
-  }%
-  \addtocounter{tottables}{%
-    \value{table}%
-  }%
-  \immediate\write\@mainaux{%
-    \string\gdef\string\totfig{%
-      \number\value{totfigures}%
-    }%
-    \string\gdef\string\tottab{%
-      \number\value{tottables}%
-    }%
-  }%
-}
-\makeatother
-
-% The calculation that appears inside
-% this block needs to be done as the
-% the document is written, not in the
-% preamble. `\pretocmd` makes this
-% calculation happen right before
-% `\listoffigures` is executed.
-\usepackage{calculator}
-\pretocmd{\listoffigures}{%
-  % Calculate the number of digits in
-  % the total number of figures
-  %
-  % Here is the algorithm:
-  %   Floor(Log10(\number)) + 1
-  \MAX{\totfig}{1}{\figurecount}
-  \LOG[10]{\figurecount}{\tempAfig}%
-  \FLOOR{\tempAfig}{\tempBfig}%
-  \ADD{\tempBfig}{1}{\digitsinfig}%     % Number of digits in number of figs
-  %
-  % Calculate space factor for figures
-  % The space factor is just one less
-  % than the number of digits, but it
-  % must be at least 0.
-  %
-  \SUBTRACT{\digitsinfig}{1}{\tempDfig}%
-  \MAX{\tempDfig}{0}{\tempEfig}%
-  \MULTIPLY{\tempEfig}{0.55}{%
-    \figspacefactor%                    % Space factor for figures in LOF
-  }%
-  % Apply the space factor for figures
-  \setlength{\cftfigurenumwidth}{%      % Figure has the same 'level' as
-    \cftchapternumwidth%                % 'chapter' in the figure list, so
-  }%                                    % make the number spacing the same as
-                                        % for chapters unless there are more
-  \addtolength{\cftfigurenumwidth}{%    % than 9 figures; in that case, add
-    \figspacefactor em%                 % extra space (as calculated in
-  }%                                    % `\figspacefactor`
-}{}{}
-
-% Same space calculation for tables
-\pretocmd{\listoftables}{%
-  % Calculate the number of digits in
-  % the total number of tables
-  \MAX{\tottab}{1}{\tablecount}
-  \LOG[10]{\tablecount}{\tempAtab}%
-  \FLOOR{\tempAtab}{\tempBtab}%
-  \ADD{\tempBtab}{1}{\digitsintab}%     % Number of digits in number of tabs
-  % Calculate space factor for tables
-  \SUBTRACT{\digitsintab}{1}{\tempDtab}%
-  \MAX{\tempDtab}{0}{\tempEtab}%
-  \MULTIPLY{\tempEtab}{0.55}{%
-    \tabspacefactor%                    % Space factor for tables in LOT
-  }%
-  % Apply the space factor for tables
-  \setlength{\cfttablenumwidth}{%
-    \cftchapternumwidth%
-  }%
-  \addtolength{\cfttablenumwidth}{%
-    \tabspacefactor em%
-  }%
-}{}{}
-
 %%% Leaders/dots %%%
 \renewcommand*{\cftdotsep}{1.7}         % Set distance between dots for all heading levels
 \renewcommand*{\cftchapterleader}%      % Turn on dots for 'chapter' level
@@ -731,48 +635,48 @@ $endfor$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\bibfilename}{%             %<Enter the name of the *.bib file containing the
-  $bibliography$                        %   reference information for sources cited in
-}%                                      %   the text. God help you if you're doing
-                                        %   citations manually.
+% \newcommand{\bibfilename}{%             %<Enter the name of the *.bib file containing the
+%   $bibliography$                        %   reference information for sources cited in
+% }%                                      %   the text. God help you if you're doing
+%                                         %   citations manually.
 
-\newcommand{\bibheading}{References}    %<Enter the heading for the references section:
-                                        %   'References', 'Works Cited', or 'Bibliography'
+% \newcommand{\bibheading}{References}    %<Enter the heading for the references section:
+%                                         %   'References', 'Works Cited', or 'Bibliography'
 
-\providetoggle{usebiblatex}             % True = a biblatex package is being used;
-                                        %   False = 'natbib' is being used
-\settoggle{usebiblatex}{true}           %~Set to 'false' to use 'natbib' intead of
-                                        %   biblatex; I strongly recommend using biblatex
-                                        %   because natbib is rather old and will break
-                                        %   for innocuous things like underscores in URLs
-\iftoggle{usebiblatex}{%                % Settings for citation package
-%                                       % Settings for 'biblatex' or a version of
-%                                       %   'biblatex'
-  \usepackage[authordate,%
-              backend=biber,%           % Recommend to use 'biber' instead of 'bibtex'
-              doi=only,%                % Avoid printing URLs
-              isbn=false]%              % Don't print ISBN numbers
-              {biblatex-chicago}        %~Other possibilities include: 'biblatex',
-                                        %   'biblatex-apa', and 'biblatex-mla'
-  \bibliography{\bibfilename}
-  \setlength{\bibitemsep}%              % Set vertical distance between
-    {0.5\baselineskip}%                 %   bibliography entries
-  \setcounter{biburlnumpenalty}{9000}   % Break URLs in bibliography across lines
-  \setcounter{biburlucpenalty}{9000}
-  \setcounter{biburllcpenalty}{9000}
+% \providetoggle{usebiblatex}             % True = a biblatex package is being used;
+%                                         %   False = 'natbib' is being used
+% \settoggle{usebiblatex}{true}           %~Set to 'false' to use 'natbib' intead of
+%                                         %   biblatex; I strongly recommend using biblatex
+%                                         %   because natbib is rather old and will break
+%                                         %   for innocuous things like underscores in URLs
+% \iftoggle{usebiblatex}{%                % Settings for citation package
+% %                                       % Settings for 'biblatex' or a version of
+% %                                       %   'biblatex'
+%   \usepackage[authordate,%
+%               backend=biber,%           % Recommend to use 'biber' instead of 'bibtex'
+%               doi=only,%                % Avoid printing URLs
+%               isbn=false]%              % Don't print ISBN numbers
+%               {biblatex-chicago}        %~Other possibilities include: 'biblatex',
+%                                         %   'biblatex-apa', and 'biblatex-mla'
+%   \bibliography{\bibfilename}
+%   \setlength{\bibitemsep}%              % Set vertical distance between
+%     {0.5\baselineskip}%                 %   bibliography entries
+%   \setcounter{biburlnumpenalty}{9000}   % Break URLs in bibliography across lines
+%   \setcounter{biburlucpenalty}{9000}
+%   \setcounter{biburllcpenalty}{9000}
 
-  \usepackage[style=american,%          % Settings for quotation marks; load after
-    english=american]{csquotes}%        %   'inputenc'; only use with biblatex; throws
-  \MakeOuterQuote{"}%                   %   error when used with natbib
-}{%                                     % Settings for 'natbib'
-  \usepackage{natbib}%
-  \newcommand{\natbibstyle}{%           %~Enter the name of the *.bst file to use to
-    asudis%                         %   format citations with natbib. Default is
-  }%                                    %   'asudis'. I do not know where 'asudis' came
-                                        %   from, but apparently it formats citations
-                                        %   correctly because it was included with the
-                                        %   previous LaTeX template.
-}
+%   \usepackage[style=american,%          % Settings for quotation marks; load after
+%     english=american]{csquotes}%        %   'inputenc'; only use with biblatex; throws
+%   \MakeOuterQuote{"}%                   %   error when used with natbib
+% }{%                                     % Settings for 'natbib'
+%   \usepackage{natbib}%
+%   \newcommand{\natbibstyle}{%           %~Enter the name of the *.bst file to use to
+%     asudis%                         %   format citations with natbib. Default is
+%   }%                                    %   'asudis'. I do not know where 'asudis' came
+%                                         %   from, but apparently it formats citations
+%                                         %   correctly because it was included with the
+%                                         %   previous LaTeX template.
+% }
 
 %% To make quarto/rmarkdown work
 
@@ -821,28 +725,13 @@ $endfor$
   {\DoubleSpacing}
 
 %%% Figures %%%
+\makeatother
 \setfloatadjustment{figure}%            % Left justify material inside figure floats
   {\raggedright}
 \BeforeBeginEnvironment{figure}%        % Single space inside figure environment
   {\SingleSpacing}
 \AfterEndEnvironment{figure}
   {\DoubleSpacing}
-
-\makeatletter                           % Define custom macro called '\maxwidth{}' that
-  \def\maxwidth#1{%                     %   allows you to specify the maximum width of an
-    \ifdim%                             %   imported image. See below for an example.
-      \Gin@nat@width>#1 #1%             %
-    \else%                              % Source: http://tex.stackexchange.com/questions/86350/includegraphics-maximum-width
-      \Gin@nat@width%
-    \fi}
-\makeatother
-%
-% Example \maxwidth:
-%
-%   \includegraphics[width=\maxwidth]{\textwidth}]{image.pdf}
-%
-% Note: This will keep an image inside the horizontal margins assuming the image starts
-%   on the right margin (i.e., no horizontal space before the image).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Hyperref settings
@@ -1105,17 +994,13 @@ $endif$
 	{0em}%
 }
 
-% \clearpage
-% \ifnumcomp{\tottab}{>}{0}{%
-% 	\pagestyle{ASUlot}
-% 	\listoftables                         % List of Tables should appear in TOC, so use unstarred version of \listoftables
-% 	\clearpage
-% }{}
+\clearpage
+\pagestyle{ASUlot}
+\listoftables                         % List of Tables should appear in TOC, so use unstarred version of \listoftables
+\clearpage
 
-% \ifnumcomp{\totfig}{>}{0}{%
-% 	\pagestyle{ASUlof}
-% 	\listoffigures                        % List of Figures should appear in TOC, so use unstarred version of \listoffigures
-% }{}
+\pagestyle{ASUlof}
+\listoffigures                        % List of Figures should appear in TOC, so use unstarred version of \listoffigures
 
 $if(thsis.frontmatter.definitions)$
 \chapter{Definitions}                  %~OTHER LISTS (optional)
@@ -1128,9 +1013,7 @@ $if(thesis.frontmatter.preface)$
 \input{$thesis.frontmatter.preface$}                        %<Enter the name of the .tex file or omit this
 $endif$
 
-\phantomsection                         % \phantomsection is needed before using
-%   \addtocontents when it contains certain macros
-%   when also using 'hyperref' package
+\phantomsection                         % \phantomsection is needed before using \addtocontents when it contains certain macros when also using 'hyperref' package
 \addtocontents{toc}%                    % Undo manual override above for chapter indent,
 {\setlength{\cftchapterindent}%       %   so actual chapters in the TOC are indented
 	{\levelindentincrement}%            %   correctly
@@ -1190,26 +1073,26 @@ $body$
 	\setsecnumdepth{all}%                 % Turn section numbering back on after printing
 }{}
 
-\bookmarksetup{startatroot}
-\chapter*{\bibheading}                  % In the running text, use a chapter-level heading
-% for the bibliography section
-\phantomsection
-\addcontentsline{toc}{chapter}{%        % In the TOC, add a custom chapter-level heading
-	\hspace{-\cftchapterindent}%          % that will be flush against the left margin
-	\bibheading%
-}
-%\phantomsection
-%\addtocontents{toc}%                    % Add this 'mark' to TOC so subsequent pages use
-%  {\protect\markboth{\bibheading}{Page}}%   the bibliography heading (unlikely since
-%                                        %   the appendices follow quickly)
-\iftoggle{usebiblatex}{%                % Output the bibliography
-	\printbibliography[heading=none]      % Using a 'biblatex' package; do not let
-	%   'biblatex' output a heading
-}{%
-	\renewcommand\bibsection{}            % Do not let 'natbib' output a heading
-	\bibliographystyle{\natbibstyle}      % Using 'natbib' to print bibliography
-	\bibliography{\bibfilename}
-}
+% \bookmarksetup{startatroot}
+% \chapter*{\bibheading}                  % In the running text, use a chapter-level heading
+% % for the bibliography section
+% \phantomsection
+% \addcontentsline{toc}{chapter}{%        % In the TOC, add a custom chapter-level heading
+% 	\hspace{-\cftchapterindent}%          % that will be flush against the left margin
+% 	\bibheading%
+% }
+% %\phantomsection
+% %\addtocontents{toc}%                    % Add this 'mark' to TOC so subsequent pages use
+% %  {\protect\markboth{\bibheading}{Page}}%   the bibliography heading (unlikely since
+% %                                        %   the appendices follow quickly)
+% \iftoggle{usebiblatex}{%                % Output the bibliography
+% 	\printbibliography[heading=none]      % Using a 'biblatex' package; do not let
+% 	%   'biblatex' output a heading
+% }{%
+% 	\renewcommand\bibsection{}            % Do not let 'natbib' output a heading
+% 	\bibliographystyle{\natbibstyle}      % Using 'natbib' to print bibliography
+% 	\bibliography{\bibfilename}
+% }
 
 \appendix                               % Indicate start of appendices
 % Appendices are considered 'mainmatter' in this

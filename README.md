@@ -1,6 +1,8 @@
 # Quarto Template/Extension for ASU Thesis
 
-> **Warning**
+<!-- WARNING -->
+<img width="100%" src="https://raw.githubusercontent.com/ken-okabe/web-images/main/warning.svg">
+
 > It is highly recommended to use `tinytex` which comes with Quarto for rendering the PDF format. You may get warnings if using`texlive` and may need to debug (very frustrating) and install packages manually. `tinytex` can update missing libraries for you. See more on [Quarto website](https://quarto.org/docs/output-formats/pdf-engine.html).
 
 ## Background

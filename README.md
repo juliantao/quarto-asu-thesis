@@ -27,6 +27,9 @@ See [Quarto guide](https://quarto.org/docs/extensions/managing.html)
 
 ## Examples
 
-<div>
-  [![](./_book/A-Thesis-Submitted-for-a-PhD-degree-at-ASU.pdf)]()
-</div>
+[![PDF version](example/example-pdf.png)](docs/A-Thesis-Submitted-for-a-PhD-degree-at-ASU.pdf)
+
+
+
+
+

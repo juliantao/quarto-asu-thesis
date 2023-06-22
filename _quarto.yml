@@ -1,5 +1,6 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "A Thesis Submitted for a PhD degree at ASU"

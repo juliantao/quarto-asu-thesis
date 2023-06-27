@@ -9,11 +9,10 @@
 
 This repo provides a Quarto template/extension to assist the preparation of a thesis/report/dissertation according to ASU guidelines.
 
-In addition to the [office guide](https://graduate.asu.edu/current-students/completing-your-degree/formatting-your-thesis-or-dissertation), I burrowed ideas from the following sources.
+In addition to the [official guide](https://graduate.asu.edu/current-students/completing-your-degree/formatting-your-thesis-or-dissertation), I burrowed ideas from the following sources.
 
 * The pandoc LaTex template for the PDF format was roughly based on the LaTex [`ASU-Dissertation-Template`](https://github.com/GarenSidonius/ASU-Dissertation-Template).
-
-Modifications were made to the headings, captions and bibliography.
+  * Modifications were made to the headings, captions and bibliography; efforts were made to make it work for the pandoc/quarto templates.
 
 * The repo and `_quarto.yml` structure was inspired by other quarto thesis extensions [`quarto-thesis`](https://github.com/nmfs-opensci/quarto-thesis) and [`monash-quarto-thesis`](https://github.com/numbats/monash-quarto-thesis/tree/main).
 
